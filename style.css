@@ -277,7 +277,7 @@ header {
     transform: translateY(-50px);
     transition: all 0.8s ease;
 }
-.show {
+.aboutme.show-about {
     opacity: 1;
     transform: translateY(0);
 }
@@ -285,10 +285,10 @@ header {
 /* LEFT SIDE (.col) */
 .col {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(100px);
     transition: all 0.8s ease;
 }
-.show {
+.col.show-col {
     opacity: 1;
     transform: translateX(0);
 }
@@ -296,12 +296,12 @@ header {
 /* RIGHT SIDE (.row) */
 .row {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(-100px);
     transition: all 0.8s ease;
 }
 
 /* ACTIVE STATE */
-.show {
+.row.show-row {
     opacity: 1;
     transform: translateX(0);
 }
@@ -791,8 +791,16 @@ footer {
 
     /* NAVBAR */
     header {
-        height: auto;
-        padding: 10px 0;
+        height: 65px;
+        padding: 10px 0px;  /* left-right padding add karein */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    }
+    .navmenu{
+        display: flex;
+        justify-content: space-between;
     }
 
     .hamburg {
@@ -801,7 +809,7 @@ footer {
 
     .nav-wrapper {
         position: fixed;
-        top: 0;
+        top: 0px;
         right: -100%;
         width: 75%;
         height: 100%;
@@ -889,9 +897,12 @@ footer {
         gap: 20px;
     }
 
-    .row,
+    .row{
+        width: 100%;
+    }
     .col {
         width: 100%;
+        gap: 10px;
     }
 
     /* PROJECTS */
@@ -1001,10 +1012,12 @@ footer {
     .contact {
         width: 100%;
     }
-    .bottomfooter{
-        width: 100vh;
-       display: contents;
-    }
+   .bottomfooter {
+    width: 100%;  /* ✅ 100vh ki jagah 100% */
+    display: flex; /* ✅ contents ki jagah flex */
+    flex-direction: column;
+    align-items: center;
+}
     .bottomfooter p{
         display: flex;
     }

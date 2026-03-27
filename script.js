@@ -27,38 +27,6 @@
 const navItems = document.querySelectorAll(".navmenu ul li");
 const sections = document.querySelectorAll("section, div[id]");
 
-/* ✅ CLICK ACTIVE (tumhari existing) */
-navItems.forEach(item => {
-    item.addEventListener("click", () => {
-
-        navItems.forEach(li => li.classList.remove("active"));
-        item.classList.add("active");
-    });
-});
-
-/* ✅ SCROLL ACTIVE */
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    navItems.forEach(li => {
-        li.classList.remove("active");
-
-        if (li.getAttribute("data-section") === current) {
-            li.classList.add("active");
-        }
-    });
-});
-
-
-
 const words = ["Frontend Developer", "Shopify Developer"];
 let wordIndex = 0;
 let charIndex = 0;
@@ -94,19 +62,21 @@ typeEffect();
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            entry.target.style.transition = "transform 0.6s ease, opacity 0.6s ease";
-            entry.target.style.transform = "translateY(0)";
-            entry.target.style.opacity = "1";
-        } else {
-            entry.target.style.transform = "translateY(50px)";
-            entry.target.style.opacity = "0";
+            // Har element ki apni specific class
+            if (entry.target.classList.contains('aboutme')) {
+                entry.target.classList.add('show-about');
+            }
+            if (entry.target.classList.contains('row')) {
+                entry.target.classList.add('show-row');
+            }
+            if (entry.target.classList.contains('col')) {
+                entry.target.classList.add('show-col');
+            }
         }
     });
 }, { threshold: 0.3 });
 
 document.querySelectorAll(".aboutme, .col, .row").forEach(el => observer.observe(el));
-
 
 navItems.forEach(item => {
     item.addEventListener("click", () => {

@@ -8,6 +8,7 @@
 
 }
 
+
 html,
 body {
     font-family: 'Poppins', sans-serif;
@@ -117,16 +118,14 @@ header {
     color: white !important;
 
 }
-.button i {
-    font-size: 16px;
-}
-.button:hover i{
-    font-size: 16px;
-    color: white !important;
-}
-
 .hamburg {
     display: none;
+    cursor: pointer;
+    z-index: 2100;
+}
+.hamburg i {
+    font-size: 28px;
+    color: rgba(128,0,0,0.85);
 }
 
 .buttontitle {
@@ -784,81 +783,94 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+
+
 /* ================= MOBILE (0–600px) ================= */
 @media (max-width: 600px) {
 
+    /* NAVBAR */
     header {
         height: auto;
         padding: 10px 0;
     }
 
     .hamburg {
-    display: block;
-    cursor: pointer;
-    z-index: 2000;
-}
+        display: block;
+    }
 
-/* Slide menu */
-.nav-wrapper {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: -100%;  /* start offscreen */
-    width: 60%;
-    height: 100%;
-    background: #fafafa;
-    padding: 60px 20px 20px 20px;
-    gap: 30px;
-    transition: left 0.3s ease;
-    z-index: 1500;
-}
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 60px 20px;
+        gap: 25px;
+        transition: right 0.3s ease;
+        z-index: 2000;
+    }
 
-.nav-wrapper.active {
-    right: 0;
-    display: flex;
-}
+    .nav-wrapper.active {
+        right: 0;
+    }
 
-/* Adjust nav items */
-.nav-wrapper ul {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+      .nav-wrapper ul li {
+        font-size: 18px;            /* readable size */
+        padding: 18px 10px;         /* spacing */
+        width: 100%;                 /* full width for tap area */
+        border-bottom: 1px solid #ddd; /* subtle separator */
+        font-weight: 500;
+        color: #444;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
 
-.nav-wrapper ul li {
-    font-size: 18px;
-    padding: 10px 0;
-}
-.buttontitle, .hideplay {
-    display: none;
-}
+    .nav-wrapper ul li:hover {
+        color: rgba(128, 0, 0, 0.815);  /* highlight on hover */
+        background-color: rgba(128, 0, 0, 0.05); /* subtle hover bg */
+    }
+
+    .nav-wrapper ul li.active {
+        color: rgba(128, 0, 0, 0.9);
+        font-weight: 600;
+        background-color: rgba(128, 0, 0, 0.1);
+    }
 
 
-    /* HERO SECTION */
+    .hideplay {
+        display: none;
+    }
+
+    /* HERO */
     .main {
         flex-direction: column-reverse;
-        height: auto;
-        padding: 120px 20px 40px;
+        padding: 90px 15px 30px;
         text-align: center;
+        height: auto;
     }
 
     .paragraph {
         width: 100%;
         height: auto;
+        gap: 15px;
     }
 
     .heading {
         width: 100%;
+        font-size: 26px;
     }
 
     .ownimg {
         width: 100%;
-        height: auto;
     }
 
     .ownimg img {
-        width: 200px;
+        max-width: 220px;
+        width: 100%;
+        height: auto;
     }
 
     .btns {
@@ -874,18 +886,92 @@ footer {
     .section {
         flex-direction: column;
         padding: 20px;
-        height: auto;
+        gap: 20px;
     }
 
-    .row, .col {
+    .row,
+    .col {
         width: 100%;
     }
 
     /* PROJECTS */
-    .carditems {
-        min-width: 280px;
-        height: 380px;
-    }
+/* ===== Carousel Wrapper ===== */
+.cardswrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 20px 40px;
+}
+
+/* Card List */
+.cardlist {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+/* Hide scrollbar */
+.cardlist::-webkit-scrollbar {
+    display: none;
+}
+.cardlist {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Card Item */
+.carditems {
+    position: relative;
+    flex: 0 0 300px; /* makes card width responsive */
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cardsimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.carditems:hover .cardsimg {
+    transform: scale(1.05);
+}
+
+/* Overlay and Text */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        hsla(0,0%,0%,0.85) 0%,
+        hsla(0,0%,0%,0.35) 45%,
+        transparent 100%
+    );
+    border-radius: 16px;
+}
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 2;
+    color: #fff;
+}
+.card-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.card-content p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
 
     /* REVIEWS */
     #review-grid {
@@ -906,39 +992,38 @@ footer {
     #git {
         grid-template-columns: 1fr;
         margin: 20px;
-        height: auto;
         gap: 20px;
+        height: auto;
     }
 
     .contact {
         width: 100%;
     }
-
 }
+
+
 /* ================= TABLET (601px–1000px) ================= */
 @media (min-width: 601px) and (max-width: 1000px) {
 
     .main {
         flex-direction: column;
         height: auto;
-        padding: 120px 30px;
+        padding: 100px 30px;
         text-align: center;
     }
 
-    .paragraph {
-        width: 100%;
-    }
-
+    .paragraph,
     .ownimg {
         width: 100%;
     }
 
     .section {
         flex-direction: column;
-        height: auto;
+        padding: 30px;
     }
 
-    .row, .col {
+    .row,
+    .col {
         width: 100%;
     }
 
@@ -952,7 +1037,7 @@ footer {
 
     #git {
         grid-template-columns: repeat(2, 1fr);
-        height: auto;
+        margin: 30px;
     }
 
     .services,

@@ -977,6 +977,7 @@ footer {
     #review-grid {
         grid-template-columns: 1fr;
     }
+    
 
     /* SERVICES */
     #service {
@@ -987,6 +988,7 @@ footer {
         width: 100%;
         margin: 10px 0;
     }
+  
 
     /* CONTACT */
     #git {
@@ -998,6 +1000,13 @@ footer {
 
     .contact {
         width: 100%;
+    }
+    .bottomfooter{
+        width: 100vh;
+       display: contents;
+    }
+    .bottomfooter p{
+        display: flex;
     }
 }
 

@@ -1113,6 +1113,7 @@ footer {
     /* SERVICES */
     #service {
         grid-template-columns: 1fr;
+         justify-items: center;
     }
 
 
@@ -1130,13 +1131,26 @@ footer {
         grid-template-columns: 1fr;
         height: auto;
         gap: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
     }
 
-    .services,
-    .contact {
+    .services{
         width: 100%;
         max-width: 350px;
+        margin: 0px;
+    }
+    .contact {
+           width: 100%;
+        max-width: 350px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .bottomfooter {
@@ -1146,9 +1160,7 @@ footer {
     }
 
     .bottomfooter p {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+          flex-wrap: wrap;
     }
 }
 

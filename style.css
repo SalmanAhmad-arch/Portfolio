@@ -347,6 +347,7 @@ header {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      background-color: #fafafa;
       gap: 12px;
     }
     #projects h1 {
@@ -368,6 +369,7 @@ header {
     .cardswrapper {
       position: relative;
       width: 100%;
+      background-color: #fafafa;
       overflow: hidden;
       padding: 0 40px 40px;
     }
@@ -515,7 +517,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: 40vh;
+    height: 30vh;
+    background-color: #fafafa;
     justify-content: center;
     align-items: center;
 }
@@ -556,6 +559,7 @@ body {
 .review {
     display: flex; 
     height: 25vh; 
+    background-color: #fafafa;
     justify-content: center; 
     align-items: center;
  }
@@ -564,10 +568,11 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    background-color: #fafafa;
     padding: 20px;
 }
 .reviewitems {
-    background: #f8f8f8;
+    background: #ffffff;
     border-radius: 14px;
     padding: 22px;
     display: flex;
@@ -640,6 +645,7 @@ body {
     display: grid;
     justify-content: center;
     align-items: center;
+    background-color: #fafafa;
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -664,11 +670,7 @@ body {
     color: #800000d0;         /* same maroon color */
     display: inline-block;
 }
-.services i:hover {
-    color: white;  
-    transform: scale(1.1);
-    transition: 0.3s ease;
-}
+
 
 .services:hover {
     cursor: pointer;
@@ -677,11 +679,15 @@ body {
     background-color:  rgba(128, 0, 0, 0.815);
     color: white;
 }
+.services:hover i{
+    color: white;  
+}
 
 #git {
     display: grid;
     height: 270px;
-    margin: 70px;
+    width: 100%;
+    background-color: #fafafa;
     align-content: space-between;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -700,16 +706,13 @@ body {
     align-items: center;
     transition: transform 0.3s, box-shadow 0.3s;
     transform: translateY(0px);
+    background-color: #fafafa;
 }
 .icon2 i{
     font-size: 40px;
     color: rgba(128, 0, 0, 0.815);
 }
-.icon2 i:hover {
-    color: white;
-    transition: 0.3s ease;
-    transform: scale(1.1);
-}
+
 
 .contact:hover {
     cursor: pointer;
@@ -724,6 +727,7 @@ footer {
     height: 250px;
     flex-direction: column;
     row-gap: 20px;
+    background-color: #fafafa;
     padding-block: 40px 60px;
 }
 
@@ -846,6 +850,11 @@ footer {
         font-weight: 600;
         background-color: rgba(128, 0, 0, 0.1);
     }
+    .nav-wrapper ul li::after {
+        background-color:rgba(128, 0, 0, 0.05);
+    height: 2px;
+    transition: width 0.3s ease;
+}
 
 
     .hideplay {
@@ -999,14 +1008,20 @@ footer {
         width: 100%;
         margin: 10px 0;
     }
+    .proj{
+        height: 50vh;
+    }
+    .proj p{
+        margin-left: 20px;
+    }
   
 
     /* CONTACT */
     #git {
         grid-template-columns: 1fr;
-        margin: 20px;
-        gap: 20px;
         height: auto;
+        gap: 20px;
+       
     }
 
     .contact {

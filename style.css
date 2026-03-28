@@ -978,7 +978,10 @@ footer {
     }
     .col{
         width: 100%;
-        gap: 5px;
+        gap: 1px;
+    }
+    .bgc{
+        padding: 9px 0px;
     }
 
     /* PROJECTS */

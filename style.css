@@ -841,7 +841,7 @@ footer {
 
 /* ================= MOBILE (0–600px) ================= */
 @media (max-width: 600px) {
-    
+
     body {
         max-width: 100%;
         overflow-x: hidden;
@@ -969,18 +969,55 @@ footer {
         padding: 20px;
         gap: 20px;
     }
+
     .row,
     .col {
         transform: none !important;
     }
-    .row{
+
+    .row {
         width: 100%;
     }
-    .col{
+
+   
+    .col {
+        opacity: 1 !important;
+        transform: none !important;
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        gap: 1px;
+        gap: 10px;
+        align-items: center;
     }
-    .bgc{
+
+    .col>* {
+        width: 100%;
+        /* prevent overflow */
+        max-width: 100%;
+    }
+    .skill-heading {
+    position: relative;
+    font-size: 18px;
+    width: fit-content;
+    font-weight: 600;
+    margin: 20px;
+    display: inline-block; /* IMPORTANT */
+}
+
+.skill-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%; /* now it will match text width */
+    height: 3px;
+    background-color: rgba(128, 0, 0, 0.815);
+    border-radius: 2px;
+}
+
+   
+
+    .bgc {
         padding: 9px 0px;
     }
 
@@ -1101,17 +1138,18 @@ footer {
         width: 100%;
         max-width: 350px;
     }
-.bottomfooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-   .bottomfooter p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    .bottomfooter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bottomfooter p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 
